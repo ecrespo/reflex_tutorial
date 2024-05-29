@@ -9,3 +9,5 @@ from reflex_tutorial.login2 import login2
 from reflex_tutorial.calendario import calendario
 from reflex_tutorial.maps import maps
 from reflex_tutorial.view_pdf import view_pdf
+from reflex_tutorial.portfolio import portfolio
+
