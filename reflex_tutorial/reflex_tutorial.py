@@ -27,6 +27,8 @@ def index() -> rx.Component:
             rx.link("Calendario", href="/calendario", is_external=True),
             rx.link("Google Maps", href="/maps", is_external=True),
             rx.link("PDF Viewer", href="/pdfview", is_external=True),
+            # rx.link("REST API Client", href="/restapi_client", is_external=True),
+            rx.link("Portfolio", href="/portfolio", is_external=True),
 
         ),
         rx.logo(),

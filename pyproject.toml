@@ -6,7 +6,7 @@ authors = ["Ernesto Crespo <ecrespo@protonmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "3.11.7"
 reflex = "^0.5.1"
 pytz = "^2024.1"
 reflex-calendar = "^0.0.4"
