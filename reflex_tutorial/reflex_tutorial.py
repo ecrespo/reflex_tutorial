@@ -29,6 +29,7 @@ def index() -> rx.Component:
             rx.link("PDF Viewer", href="/pdfview", is_external=True),
             # rx.link("REST API Client", href="/restapi_client", is_external=True),
             rx.link("Portfolio", href="/portfolio", is_external=True),
+            rx.link("Tutorial Estático", href="/static_tutorial", is_external=True),
 
         ),
         rx.logo(),
