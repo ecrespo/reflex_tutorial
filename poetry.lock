@@ -965,6 +965,20 @@ files = [
 ]
 
 [[package]]
+name = "ollama"
+version = "0.2.0"
+description = "The official Python client for Ollama."
+optional = false
+python-versions = "<4.0,>=3.8"
+files = [
+    {file = "ollama-0.2.0-py3-none-any.whl", hash = "sha256:fefe119386c8b2cb6b6e232f9c10894326675425be980403c6a7a2dbfc8b0e19"},
+    {file = "ollama-0.2.0.tar.gz", hash = "sha256:de056cada2a92433195102da2b8ff50f66335b138eff5d277765c8adf79983f0"},
+]
+
+[package.dependencies]
+httpx = ">=0.27.0,<0.28.0"
+
+[[package]]
 name = "orjson"
 version = "3.10.3"
 description = "Fast, correct Python JSON library supporting dataclasses, datetimes, and numpy"
@@ -2407,4 +2421,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "jaraco.test", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "3.11.7"
-content-hash = "8012cc83e0e93e8c535d9741081bd599af62cb51eacf3009dbb5bfcd2bf9aa4f"
+content-hash = "6e749b33f59bbaf4adbbfa35455068f6a3cb9320bc53cdf312d6b79e1622aa53"
