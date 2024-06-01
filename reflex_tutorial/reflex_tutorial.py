@@ -30,8 +30,8 @@ def index() -> rx.Component:
             # rx.link("REST API Client", href="/restapi_client", is_external=True),
             rx.link("Portfolio", href="/portfolio", is_external=True),
             rx.link("Tutorial Estático", href="/static_tutorial", is_external=True),
-            rx.link("Reflex Ollama IA", href="/reflex_ollama", is_external=True)
-
+            rx.link("Reflex Ollama IA", href="/reflex_ollama", is_external=True),
+            rx.link("Weather App", href="/weather", is_external=True),
         ),
         rx.logo(),
     )

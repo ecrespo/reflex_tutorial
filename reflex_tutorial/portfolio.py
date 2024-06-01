@@ -69,12 +69,7 @@ class Header:
             align_items="center",
             justify_content="center"
         )
-        self.theme: rx.Component = rx.color_mode.button(
-            rx.chakra.color_mode_icon(),
-            color_scheme="gray",
-            _light={"color": "black"},
-            _dark={"color": "white"},
-        )
+        self.theme: rx.Component = rx.color_mode.button(position="top-right")
 
     def compile_components(self):
         return [

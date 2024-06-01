@@ -37,13 +37,14 @@ class Header(rx.chakra.Hstack):
         self.children = [
             rx.heading("Static Site", size="5"),
             rx.spacer(),
-            rx.chakra.color_mode_button(
-
-                rx.chakra.color_mode_icon(),
-                color_schema="none",
-                _dark={"color": "white"},
-                _light={"color": "black"},
-            ),
+            rx.color_mode.button(position="top-right"),
+            # rx.chakra.color_mode_button(
+            #
+            #     rx.chakra.color_mode_icon(),
+            #     color_schema="none",
+            #     _dark={"color": "white"},
+            #     _light={"color": "black"},
+            # ),
         ]
 
 
