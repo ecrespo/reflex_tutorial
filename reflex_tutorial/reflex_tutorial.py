@@ -5,11 +5,6 @@ import reflex as rx
 from rxconfig import config
 
 
-class State(rx.State):
-    """The app state."""
-
-    ...
-
 
 def index() -> rx.Component:
     # Welcome Page (Index)
@@ -26,12 +21,17 @@ def index() -> rx.Component:
             rx.link("Reloj", href="/clock", is_external=True),
             rx.link("Calendario", href="/calendario", is_external=True),
             rx.link("Google Maps", href="/maps", is_external=True),
-            rx.link("PDF Viewer", href="/pdfview", is_external=True),
+            # rx.link("PDF Viewer", href="/pdfview", is_external=True),
             # rx.link("REST API Client", href="/restapi_client", is_external=True),
             rx.link("Portfolio", href="/portfolio", is_external=True),
             rx.link("Tutorial Estático", href="/static_tutorial", is_external=True),
             rx.link("Reflex Ollama IA", href="/reflex_ollama", is_external=True),
             rx.link("Weather App", href="/weather", is_external=True),
+            rx.link("Ejemplo de Código", href="/code_example", is_external=True),
+            rx.link("Botón de Radio", href="/radiobutton", is_external=True),
+            rx.link("Caja de Lista", href="/listbox", is_external=True),
+            rx.link("Subir Archivo", href="/upload_file", is_external=True),
+
         ),
         rx.logo(),
     )

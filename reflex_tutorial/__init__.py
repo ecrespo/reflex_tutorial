@@ -13,3 +13,7 @@ from reflex_tutorial.portfolio import portfolio
 from reflex_tutorial.static_tutorial import static_tutorial
 from reflex_tutorial.reflexollama import reflexollama
 from reflex_tutorial.weather_app import weather_app
+from reflex_tutorial.code_example import code_example
+from reflex_tutorial.radiobutton import radiobutton
+from reflex_tutorial.listbox import listbox
+from reflex_tutorial.upload_file import upload_file
