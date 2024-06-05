@@ -31,7 +31,7 @@ def index() -> rx.Component:
             rx.link("Botón de Radio", href="/radiobutton", is_external=True),
             rx.link("Caja de Lista", href="/listbox", is_external=True),
             rx.link("Subir Archivo", href="/upload_file", is_external=True),
-
+            rx.link("Editor de Texto", href="/editor", is_external=True),
         ),
         rx.logo(),
     )

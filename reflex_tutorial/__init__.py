@@ -17,3 +17,4 @@ from reflex_tutorial.code_example import code_example
 from reflex_tutorial.radiobutton import radiobutton
 from reflex_tutorial.listbox import listbox
 from reflex_tutorial.upload_file import upload_file
+from reflex_tutorial.editor_file import editor_file
