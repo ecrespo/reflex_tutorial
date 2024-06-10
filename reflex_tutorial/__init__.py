@@ -18,3 +18,5 @@ from reflex_tutorial.radiobutton import radiobutton
 from reflex_tutorial.listbox import listbox
 from reflex_tutorial.upload_file import upload_file
 from reflex_tutorial.editor_file import editor_file
+from reflex_tutorial.github_stats import github_stats
+
