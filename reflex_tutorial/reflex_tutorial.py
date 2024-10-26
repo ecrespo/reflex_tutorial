@@ -1,7 +1,7 @@
 import reflex as rx
 
 
-def signup_multiple_thirdparty() -> rx.Component:
+def login_multiple_thirdparty() -> rx.Component:
     return rx.card(
         rx.vstack(
             rx.flex(
@@ -12,18 +12,18 @@ def signup_multiple_thirdparty() -> rx.Component:
                     border_radius="25%",
                 ),
                 rx.heading(
-                    "Create an account",
+                    "Sign in to your account",
                     size="6",
                     as_="h2",
                     width="100%",
                 ),
                 rx.hstack(
                     rx.text(
-                        "Already registered?",
+                        "New here?",
                         size="3",
                         text_align="left",
                     ),
-                    rx.link("Sign in", href="#", size="3"),
+                    rx.link("Sign up", href="#", size="3"),
                     spacing="2",
                     opacity="0.8",
                     width="100%",
@@ -48,16 +48,23 @@ def signup_multiple_thirdparty() -> rx.Component:
                     size="3",
                     width="100%",
                 ),
-                justify="start",
                 spacing="2",
+                justify="start",
                 width="100%",
             ),
             rx.vstack(
-                rx.text(
-                    "Password",
-                    size="3",
-                    weight="medium",
-                    text_align="left",
+                rx.hstack(
+                    rx.text(
+                        "Password",
+                        size="3",
+                        weight="medium",
+                    ),
+                    rx.link(
+                        "Forgot password?",
+                        href="#",
+                        size="3",
+                    ),
+                    justify="between",
                     width="100%",
                 ),
                 rx.input(
@@ -67,19 +74,10 @@ def signup_multiple_thirdparty() -> rx.Component:
                     size="3",
                     width="100%",
                 ),
-                justify="start",
                 spacing="2",
                 width="100%",
             ),
-            rx.box(
-                rx.checkbox(
-                    "Agree to Terms and Conditions",
-                    default_checked=True,
-                    spacing="2",
-                ),
-                width="100%",
-            ),
-            rx.button("Register", size="3", width="100%"),
+            rx.button("Sign in", size="3", width="100%"),
             rx.hstack(
                 rx.divider(margin="0"),
                 rx.text(
@@ -121,7 +119,7 @@ def signup_multiple_thirdparty() -> rx.Component:
 
 
 def index() -> rx.Component:
-    return rx.flex(signup_multiple_thirdparty())
+    return rx.flex(login_multiple_thirdparty())
 
 
 app = rx.App()
