@@ -854,6 +854,18 @@ wheels = [
 ]
 
 [[package]]
+name = "reflex-qrcode"
+version = "0.0.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "reflex" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/02/70/1a2eb045bb77f7f10ced42df059bcd7355ba58e183a83c4897e2d1e4cac8/reflex_qrcode-0.0.1.tar.gz", hash = "sha256:667593c1ab19863b8bc00508c9d1fefce4529b726832fa1a77cf60574f2e0911", size = 2131 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/25/dc/73c2952beb5e85ff74d64cd418cf8efecb4638423410df13c917b2f6572d/reflex_qrcode-0.0.1-py3-none-any.whl", hash = "sha256:1ec680b58f6a349fa7a5445ca8673debc9833ff5db8ba0e1175217cd36a567ae", size = 2295 },
+]
+
+[[package]]
 name = "reflex-tutorial"
 version = "0.1.0"
 source = { virtual = "." }
@@ -862,6 +874,7 @@ dependencies = [
     { name = "openai" },
     { name = "reflex" },
     { name = "reflex-map" },
+    { name = "reflex-qrcode" },
 ]
 
 [package.metadata]
@@ -870,6 +883,7 @@ requires-dist = [
     { name = "openai", specifier = ">=1.52.2" },
     { name = "reflex", specifier = ">=0.6.3.post1" },
     { name = "reflex-map", specifier = ">=0.2.3" },
+    { name = "reflex-qrcode", specifier = ">=0.0.1" },
 ]
 
 [[package]]

@@ -8,5 +8,6 @@ dependencies = [
     "alembic>=1.13.3",
     "openai>=1.52.2",
     "reflex-map>=0.2.3",
+    "reflex-qrcode>=0.0.1",
     "reflex>=0.6.3.post1",
 ]
