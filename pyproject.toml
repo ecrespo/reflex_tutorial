@@ -1,21 +1,10 @@
-[tool.poetry]
+[project]
 name = "reflex-tutorial"
 version = "0.1.0"
-description = ""
-authors = ["Ernesto Crespo <ecrespo@protonmail.com>"]
+description = "Add your description here"
 readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "3.11.7"
-reflex = "^0.5.2"
-pytz = "^2024.1"
-reflex-calendar = "^0.0.4"
-ollama = "^0.2.0"
-python-dotenv = "^1.0.1"
-requests = "^2.32.3"
-bs4 = "^0.0.2"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires-python = ">=3.12"
+dependencies = [
+    "reflex-map>=0.2.3",
+    "reflex>=0.6.3.post1",
+]
