@@ -1,45 +1,102 @@
 import reflex as rx
 
 
-class MapContainer(rx.NoSSRComponent):
-    library = "react-leaflet"
+class Document(rx.Component):
+    library = "@react-pdf/renderer"
 
-    tag = "MapContainer"
-
-    center: rx.Var[list]
-
-    zoom: rx.Var[int]
-
-    scroll_wheel_zoom: rx.Var[bool]
-
-    # Can also pass a url like: https://unpkg.com/leaflet/dist/leaflet.css
-    def add_imports(self):
-        return {"": ["leaflet/dist/leaflet.css"]}
+    tag = "Document"
 
 
-class TileLayer(rx.NoSSRComponent):
-    library = "react-leaflet"
+class Page(rx.Component):
+    library = "@react-pdf/renderer"
 
-    tag = "TileLayer"
+    tag = "Page"
 
-    url: rx.Var[str]
+    size: rx.Var[str]
+    # here we are wrapping style prop but as style is a reserved name in Reflex we must name it something else and then change this name with rename props method
+    theme: rx.Var[dict]
+
+    _rename_props: dict[str, str] = {
+        "theme": "style",
+    }
 
 
-map_container = MapContainer.create
-tile_layer = TileLayer.create
+class Text(rx.Component):
+    library = "@react-pdf/renderer"
+
+    tag = "Text"
+
+
+class View(rx.Component):
+    library = "@react-pdf/renderer"
+
+    tag = "View"
+
+    # here we are wrapping style prop but as style is a reserved name in Reflex we must name it something else and then change this name with rename props method
+    theme: rx.Var[dict]
+
+    _rename_props: dict[str, str] = {
+        "theme": "style",
+    }
+
+
+class StyleSheet(rx.Component):
+    library = "@react-pdf/renderer"
+
+    tag = "StyleSheet"
+
+    page: rx.Var[dict]
+
+    section: rx.Var[dict]
+
+
+class PDFViewer(rx.NoSSRComponent):
+    library = "@react-pdf/renderer"
+
+    tag = "PDFViewer"
+
+
+document = Document.create
+page = Page.create
+text = Text.create
+view = View.create
+style_sheet = StyleSheet.create
+pdf_viewer = PDFViewer.create
+
+
+styles = style_sheet(
+    {
+        "page": {
+            "flexDirection": "row",
+            "backgroundColor": "#E4E4E4",
+        },
+        "section": {
+            "margin": 10,
+            "padding": 10,
+            "flexGrow": 1,
+        },
+    }
+)
 
 
 def index() -> rx.Component:
-    return map_container(
-        tile_layer(
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    return pdf_viewer(
+        document(
+            page(
+                view(
+                    text("Hello, World!"),
+                    theme=styles.section,
+                ),
+                view(
+                    text("Hello, 2!"),
+                    theme=styles.section,
+                ),
+                size="A4",
+                theme=styles.page,
+            ),
         ),
-        # 10.184236, -68.004010
-        center=[10.184236, -68.004010],
-        zoom=13,
-        # scroll_wheel_zoom=True
         width="100%",
-        height="50vh",
+        height="80vh",
     )
 
 
