@@ -1,69 +1,127 @@
 import reflex as rx
 
 
-class AgCharts(rx.Component):
-    """A simple line chart component using AG Charts"""
-
-    library = "ag-charts-react"
-
-    tag = "AgCharts"
-
-    options: rx.Var[dict]
-
-
-chart = AgCharts.create
-
-
-class State(rx.State):
-    """The app state."""
-
-    chart_options: dict = {
-        "data": [
-            {
-                "month": "Jan",
-                "avgTemp": 2.3,
-                "iceCreamSales": 162000,
-            },
-            {
-                "month": "Mar",
-                "avgTemp": 6.3,
-                "iceCreamSales": 302000,
-            },
-            {
-                "month": "May",
-                "avgTemp": 16.2,
-                "iceCreamSales": 800000,
-            },
-            {
-                "month": "Jul",
-                "avgTemp": 22.8,
-                "iceCreamSales": 1254000,
-            },
-            {
-                "month": "Sep",
-                "avgTemp": 14.5,
-                "iceCreamSales": 950000,
-            },
-            {
-                "month": "Nov",
-                "avgTemp": 8.9,
-                "iceCreamSales": 200000,
-            },
-        ],
-        "series": [
-            {
-                "type": "bar",
-                "xKey": "month",
-                "yKey": "iceCreamSales",
-            }
-        ],
-    }
+def signup_multiple_thirdparty() -> rx.Component:
+    return rx.card(
+        rx.vstack(
+            rx.flex(
+                rx.image(
+                    src="/logo.jpg",
+                    width="2.5em",
+                    height="auto",
+                    border_radius="25%",
+                ),
+                rx.heading(
+                    "Create an account",
+                    size="6",
+                    as_="h2",
+                    width="100%",
+                ),
+                rx.hstack(
+                    rx.text(
+                        "Already registered?",
+                        size="3",
+                        text_align="left",
+                    ),
+                    rx.link("Sign in", href="#", size="3"),
+                    spacing="2",
+                    opacity="0.8",
+                    width="100%",
+                ),
+                justify="start",
+                direction="column",
+                spacing="4",
+                width="100%",
+            ),
+            rx.vstack(
+                rx.text(
+                    "Email address",
+                    size="3",
+                    weight="medium",
+                    text_align="left",
+                    width="100%",
+                ),
+                rx.input(
+                    rx.input.slot(rx.icon("user")),
+                    placeholder="user@reflex.dev",
+                    type="email",
+                    size="3",
+                    width="100%",
+                ),
+                justify="start",
+                spacing="2",
+                width="100%",
+            ),
+            rx.vstack(
+                rx.text(
+                    "Password",
+                    size="3",
+                    weight="medium",
+                    text_align="left",
+                    width="100%",
+                ),
+                rx.input(
+                    rx.input.slot(rx.icon("lock")),
+                    placeholder="Enter your password",
+                    type="password",
+                    size="3",
+                    width="100%",
+                ),
+                justify="start",
+                spacing="2",
+                width="100%",
+            ),
+            rx.box(
+                rx.checkbox(
+                    "Agree to Terms and Conditions",
+                    default_checked=True,
+                    spacing="2",
+                ),
+                width="100%",
+            ),
+            rx.button("Register", size="3", width="100%"),
+            rx.hstack(
+                rx.divider(margin="0"),
+                rx.text(
+                    "Or continue with",
+                    white_space="nowrap",
+                    weight="medium",
+                ),
+                rx.divider(margin="0"),
+                align="center",
+                width="100%",
+            ),
+            rx.center(
+                rx.icon_button(
+                    rx.icon(tag="github"),
+                    variant="soft",
+                    size="3",
+                ),
+                rx.icon_button(
+                    rx.icon(tag="facebook"),
+                    variant="soft",
+                    size="3",
+                ),
+                rx.icon_button(
+                    rx.icon(tag="twitter"),
+                    variant="soft",
+                    size="3",
+                ),
+                spacing="4",
+                direction="row",
+                width="100%",
+            ),
+            spacing="6",
+            width="100%",
+        ),
+        size="4",
+        max_width="28em",
+        width="100%",
+    )
 
 
 def index() -> rx.Component:
-    return chart(
-        options=State.chart_options,
-    )
+    return rx.flex(signup_multiple_thirdparty())
 
 
 app = rx.App()
