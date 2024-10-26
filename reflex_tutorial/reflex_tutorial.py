@@ -1,102 +1,68 @@
 import reflex as rx
 
 
-class Document(rx.Component):
-    library = "@react-pdf/renderer"
+class AgCharts(rx.Component):
+    """A simple line chart component using AG Charts"""
 
-    tag = "Document"
+    library = "ag-charts-react"
+
+    tag = "AgCharts"
+
+    options: rx.Var[dict]
 
 
-class Page(rx.Component):
-    library = "@react-pdf/renderer"
+chart = AgCharts.create
 
-    tag = "Page"
 
-    size: rx.Var[str]
-    # here we are wrapping style prop but as style is a reserved name in Reflex we must name it something else and then change this name with rename props method
-    theme: rx.Var[dict]
+class State(rx.State):
+    """The app state."""
 
-    _rename_props: dict[str, str] = {
-        "theme": "style",
+    chart_options: dict = {
+        "data": [
+            {
+                "month": "Jan",
+                "avgTemp": 2.3,
+                "iceCreamSales": 162000,
+            },
+            {
+                "month": "Mar",
+                "avgTemp": 6.3,
+                "iceCreamSales": 302000,
+            },
+            {
+                "month": "May",
+                "avgTemp": 16.2,
+                "iceCreamSales": 800000,
+            },
+            {
+                "month": "Jul",
+                "avgTemp": 22.8,
+                "iceCreamSales": 1254000,
+            },
+            {
+                "month": "Sep",
+                "avgTemp": 14.5,
+                "iceCreamSales": 950000,
+            },
+            {
+                "month": "Nov",
+                "avgTemp": 8.9,
+                "iceCreamSales": 200000,
+            },
+        ],
+        "series": [
+            {
+                "type": "bar",
+                "xKey": "month",
+                "yKey": "iceCreamSales",
+            }
+        ],
     }
-
-
-class Text(rx.Component):
-    library = "@react-pdf/renderer"
-
-    tag = "Text"
-
-
-class View(rx.Component):
-    library = "@react-pdf/renderer"
-
-    tag = "View"
-
-    # here we are wrapping style prop but as style is a reserved name in Reflex we must name it something else and then change this name with rename props method
-    theme: rx.Var[dict]
-
-    _rename_props: dict[str, str] = {
-        "theme": "style",
-    }
-
-
-class StyleSheet(rx.Component):
-    library = "@react-pdf/renderer"
-
-    tag = "StyleSheet"
-
-    page: rx.Var[dict]
-
-    section: rx.Var[dict]
-
-
-class PDFViewer(rx.NoSSRComponent):
-    library = "@react-pdf/renderer"
-
-    tag = "PDFViewer"
-
-
-document = Document.create
-page = Page.create
-text = Text.create
-view = View.create
-style_sheet = StyleSheet.create
-pdf_viewer = PDFViewer.create
-
-
-styles = style_sheet(
-    {
-        "page": {
-            "flexDirection": "row",
-            "backgroundColor": "#E4E4E4",
-        },
-        "section": {
-            "margin": 10,
-            "padding": 10,
-            "flexGrow": 1,
-        },
-    }
-)
 
 
 def index() -> rx.Component:
-    return pdf_viewer(
-        document(
-            page(
-                view(
-                    text("Hello, World!"),
-                    theme=styles.section,
-                ),
-                view(
-                    text("Hello, 2!"),
-                    theme=styles.section,
-                ),
-                size="A4",
-                theme=styles.page,
-            ),
-        ),
-        width="100%",
-        height="80vh",
+    return chart(
+        options=State.chart_options,
     )
 
 
