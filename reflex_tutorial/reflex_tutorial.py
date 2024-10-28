@@ -1,22 +1,35 @@
 import reflex as rx
 
-from reflex_tutorial.components.circular_countdown_react import countdown
+
+from reflex_tutorial.components.react_chrono import chrono
 
 
 # https://www.youtube.com/watch?v=UygBVsDLeWI&ab_channel=emmakodes
 # https://www.npmjs.com/package/circular-countdown-react?activeTab=readme
 
 
-class State(rx.State):
+items = [
+    {
+      "title": "May 1940",
+      "cardTitle": "Dunkirk",
+      "url": "http://www.history.com",
+      "cardSubtitle":"Men of the British Expeditionary Force (BEF) wade out to..",
+      "cardDetailedText": "Men of the British Expeditionary Force (BEF) wade out to..",
+      "media": {
+        "type": "IMAGE",
+        "source": {
+          "url": "http://someurl/image.jpg"
+        }
+      }
+    }
+]
 
-    def display_value_on_done(self):
-        print("done")
 
 def index() -> rx.Component:
     return rx.flex(
         rx.vstack(
-            rx.heading("Reflex countdown Demo"),
-            countdown(size="large",total_seconds=10*24*3600,should_stop=False,on_done=State.display_value_on_done),
+            rx.heading("Reflex timeline Demo"),
+            chrono(items=items),
         ),
     )
 
